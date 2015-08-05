@@ -8,3 +8,7 @@ webview.addEventListener('loadcommit', function(e) {
         });
     }
 });
+
+webview.addEventListener('newwindow', function(e) {
+    window.open(e.targetUrl);
+});
