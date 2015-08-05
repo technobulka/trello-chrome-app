@@ -1,0 +1,18 @@
+{
+   "app": {
+      "background": {
+         "scripts": [ "background.js" ]
+      }
+   },
+   "name": "Trello External Window",
+   "description": "External Frameless Window for Trello",
+   "version": "0.2",
+   "icons": {
+      "16": "assets/trello-mark-blue-16.png",
+      "32": "assets/trello-mark-blue-32.png",
+      "128": "assets/trello-mark-blue-128.png",
+      "256": "assets/trello-mark-blue-256.png"
+   },
+   "manifest_version": 2,
+   "permissions": [ "webview", "storage", "notifications" ]
+}
