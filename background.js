@@ -28,7 +28,7 @@ var notice = function(title, message) {
     }
 };
 
-chrome.app.runtime.onLaunched.addListener(function(launchData) {
+var app = function() {
     chrome.app.window.create(
         'index.html',
         {
@@ -42,4 +42,12 @@ chrome.app.runtime.onLaunched.addListener(function(launchData) {
             
         }
     );
+}
+
+chrome.app.runtime.onLaunched.addListener(function() {
+    app();
+});
+
+chrome.app.runtime.onRestarted.addListener(function() {
+    app();
 });
