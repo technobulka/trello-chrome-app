@@ -8,7 +8,7 @@ var notice = function(title, message) {
                 nid,
                 {
                     title: title,
-                    iconUrl: 'assets/nt-icon.png',
+                    iconUrl: 'assets/trello-mark-blue-32.png',
                     type: 'basic',
                     message: message
                 },
@@ -21,7 +21,7 @@ var notice = function(title, message) {
             chrome.notifications.update(nid, {
                 title: title,
                 type: 'basic',
-                iconUrl: 'assets/nt-icon.png',
+                iconUrl: 'assets/trello-mark-blue-32.png',
                 message: message
             });
         }
