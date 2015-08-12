@@ -18,8 +18,4 @@ window.addEventListener('keydown', function(e) {
     if (e.ctrlKey && e.keyCode == 82 || e.keyCode == 115) {
         webview.reload();
     }
-
-    if (e.ctrlKey && e.keyCode == 81) {
-        window.close();
-    }
 });
