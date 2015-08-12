@@ -10,8 +10,7 @@
    "icons": {
       "16": "assets/trello-mark-blue-16.png",
       "32": "assets/trello-mark-blue-32.png",
-      "128": "assets/trello-mark-blue-128.png",
-      "256": "assets/trello-mark-blue-256.png"
+      "128": "assets/trello-mark-blue-128.png"
    },
    "manifest_version": 2,
    "permissions": [ "webview", "notifications", "unlimitedStorage", "https://trello.com/", "https://*.google.com/" ]
