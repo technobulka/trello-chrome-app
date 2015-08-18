@@ -1,5 +1,6 @@
 var nid = 'main';
 var ctd = false;
+var extID = 'ppibnbapebejhnmplokgfhijhfdchhhc'; // catcher links extension
 var appID = 'apdfdogachdbobbikkjaghgcahcmcdkl'; // this app
 
 var notice = function(title, message) {
