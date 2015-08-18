@@ -35,6 +35,11 @@ window.addEventListener('keydown', function(e) {
     }
 });
 
+// fix webview lose focus
+window.addEventListener('focus', function(e) {
+    webview.focus();
+});
+
 // open cached links
 chrome.runtime.onMessage.addListener(function(request, sender) {
     if (sender.id == appID) {
