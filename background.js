@@ -1,5 +1,6 @@
 var nid = 'main';
 var ctd = false;
+var appID = 'apdfdogachdbobbikkjaghgcahcmcdkl'; // this app
 
 var notice = function(title, message) {
     if ('string' == typeof title && 'string' == typeof message) {
@@ -50,4 +51,11 @@ chrome.app.runtime.onLaunched.addListener(function() {
 
 chrome.app.runtime.onRestarted.addListener(function() {
     app();
+});
+
+// send cached links to webview
+chrome.runtime.onMessageExternal.addListener(function(request, sender) {
+    if (sender.id == extID) {
+        chrome.runtime.sendMessage(appID, request);
+    }
 });
