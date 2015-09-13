@@ -6,7 +6,7 @@ var appID = 'gkcknpgdmiigoagkcoglklgaagnpojed'; // this app
 webview.addEventListener('loadcommit', function(e) {
     if (e.isTopLevel) {
         webview.insertCSS({
-            code: '.header-btn.header-boards, .promo-nav { margin-left: 38px !important; }',
+            code: '.header-btn.header-boards,.promo-nav{margin-left:38px!important}.window-overlay::-webkit-scrollbar{height:33px;width:33px}.window-overlay::-webkit-scrollbar-thumb{min-height:50px;background:rgba(255,255,255,1);border-radius:17px;border:10px solid transparent;background-clip:padding-box}.window-overlay::-webkit-scrollbar-track-piece{background:rgba(0,0,0,.5);border:10px solid transparent;background-clip:padding-box}.window-overlay::-webkit-scrollbar-track-piece:vertical:start{border-radius:17px 17px 0 0}.window-overlay::-webkit-scrollbar-track-piece:vertical:end{border-radius:0 0 17px 17px}',
             runAt: 'document_start'
         });
     }

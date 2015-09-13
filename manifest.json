@@ -6,7 +6,7 @@
    },
    "name": "Trello External Window",
    "description": "External Frameless Window for Trello",
-   "version": "0.7",
+   "version": "0.9",
    "icons": {
       "16": "assets/trello-mark-blue-16.png",
       "32": "assets/trello-mark-blue-32.png",
