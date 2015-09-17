@@ -40,6 +40,13 @@ window.addEventListener('focus', function(e) {
     webview.focus();
 });
 
+// allow download
+webview.addEventListener('permissionrequest', function(e) {
+    if (e.permission === 'download') {
+        e.request.allow();
+    }
+});
+
 // open cached links
 chrome.runtime.onMessage.addListener(function(request, sender) {
     if (sender.id == appID) {
