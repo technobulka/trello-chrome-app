@@ -14,7 +14,12 @@ webview.addEventListener('loadcommit', function(e) {
 
 // send new-window-links to bronser
 webview.addEventListener('newwindow', function(e) {
-    e.stopImmediatePropagation();
+    if (/accounts\.google\.com.+drive\.readonly/.test(e.targetUrl)) {
+        // open in this page
+    } else {
+        e.stopImmediatePropagation();
+    }
+
     window.open(e.targetUrl);
 });
 
