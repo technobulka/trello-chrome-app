@@ -1,24 +1,30 @@
 {
-   "app": {
-      "background": {
-         "scripts": [ "background.js" ]
-      }
-   },
+   "manifest_version": 2,
+
    "name": "Trello External Window",
+   "short_name": "Trello XW",
    "description": "External Frameless Window for Trello",
-   "version": "0.9.2",
+   "version": "0.9.3",
    "icons": {
       "16": "assets/trello-mark-blue-16.png",
       "32": "assets/trello-mark-blue-32.png",
       "128": "assets/trello-mark-blue-128.png"
    },
-   "manifest_version": 2,
+
+   "minimum_chrome_version": "40",
    "permissions": [
       "webview",
+      "storage",
+      "<all_urls>",
+      "contextMenus",
       "notifications",
       "unlimitedStorage",
-      "https://trello.com/*",
-      "https://*.google.com/*",
       "app.window.fullscreen.overrideEsc"
-   ]
+   ],
+
+   "app": {
+      "background": {
+         "scripts": [ "background.js" ]
+      }
+   }
 }

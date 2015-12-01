@@ -4,7 +4,7 @@ html, body, #main {
     margin: 0;
 }
 
-.drag {
+#drag {
     height: 30px;
     min-width: 30px;
     color: #f3f3f3;

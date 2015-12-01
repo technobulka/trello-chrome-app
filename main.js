@@ -1,12 +1,26 @@
 var webview = document.getElementById('main');
+var bullet = document.getElementById('drag');
 var extID = 'ppibnbapebejhnmplokgfhijhfdchhhc'; // catcher links extension
 var appID = 'gkcknpgdmiigoagkcoglklgaagnpojed'; // this app
+var insert_style = '.window-overlay::-webkit-scrollbar{height:33px;width:33px}.window-overlay::-webkit-scrollbar-thumb{min-height:50px;background:rgba(255,255,255,1);border-radius:17px;border:10px solid transparent;background-clip:padding-box}.window-overlay::-webkit-scrollbar-track-piece{background:rgba(0,0,0,.5);border:10px solid transparent;background-clip:padding-box}.window-overlay::-webkit-scrollbar-track-piece:vertical:start{border-radius:17px 17px 0 0}.window-overlay::-webkit-scrollbar-track-piece:vertical:end{border-radius:0 0 17px 17px}';
+
+// hide bullet if window is framed
+chrome.storage.sync.get(function(items) {
+    if (items.showFrame !== undefined) {
+        frame = items.showFrame;
+    }
+    if (frame == 'chrome') {
+        bullet.style.display = 'none';
+    } else {
+        insert_style += '.header-btn.header-boards,.promo-nav{margin-left:38px!important}';
+    }
+});
 
 // set some css on trello.com
 webview.addEventListener('loadcommit', function(e) {
     if (e.isTopLevel) {
         webview.insertCSS({
-            code: '.header-btn.header-boards,.promo-nav{margin-left:38px!important}.window-overlay::-webkit-scrollbar{height:33px;width:33px}.window-overlay::-webkit-scrollbar-thumb{min-height:50px;background:rgba(255,255,255,1);border-radius:17px;border:10px solid transparent;background-clip:padding-box}.window-overlay::-webkit-scrollbar-track-piece{background:rgba(0,0,0,.5);border:10px solid transparent;background-clip:padding-box}.window-overlay::-webkit-scrollbar-track-piece:vertical:start{border-radius:17px 17px 0 0}.window-overlay::-webkit-scrollbar-track-piece:vertical:end{border-radius:0 0 17px 17px}',
+            code: insert_style,
             runAt: 'document_start'
         });
     }
@@ -14,12 +28,7 @@ webview.addEventListener('loadcommit', function(e) {
 
 // send new-window-links to bronser
 webview.addEventListener('newwindow', function(e) {
-    if (/accounts\.google\.com.+drive\.readonly/.test(e.targetUrl)) {
-        // open in this page
-    } else {
-        e.stopImmediatePropagation();
-    }
-
+    e.stopImmediatePropagation();
     window.open(e.targetUrl);
 });
 
@@ -37,6 +46,23 @@ window.addEventListener('keydown', function(e) {
         } else {
             chrome.app.window.current().fullscreen();
         }
+    }
+
+    // Show/hide frame
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 70) {
+        chrome.storage.sync.get(function(items) {
+            if (items.showFrame === undefined || items.showFrame === 'none') {
+                frame = 'chrome';
+            } else {
+                frame = 'none';
+            }
+
+            chrome.storage.sync.set({ showFrame: frame });
+        });
+
+        setTimeout(function(){
+            chrome.runtime.reload();
+        }, 500);
     }
 });
 

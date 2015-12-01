@@ -2,33 +2,14 @@ var nid = 'main';
 var ctd = false;
 var extID = 'ppibnbapebejhnmplokgfhijhfdchhhc'; // catcher links extension
 var appID = 'gkcknpgdmiigoagkcoglklgaagnpojed'; // this app
+var frame = 'none';
 
-var notice = function(title, message) {
-    if ('string' == typeof title && 'string' == typeof message) {
-        if (!ctd) {
-            chrome.notifications.create(
-                nid,
-                {
-                    title: title,
-                    iconUrl: 'assets/trello-mark-blue-32.png',
-                    type: 'basic',
-                    message: message
-                },
-
-                function() {
-                    ctd = true;
-                }
-            );
-        } else {
-            chrome.notifications.update(nid, {
-                title: title,
-                type: 'basic',
-                iconUrl: 'assets/trello-mark-blue-32.png',
-                message: message
-            });
-        }
+// frame options
+chrome.storage.sync.get(function(items) {
+    if (items.showFrame !== undefined) {
+        frame = items.showFrame;
     }
-};
+});
 
 var app = function() {
     chrome.app.window.create(
@@ -36,7 +17,7 @@ var app = function() {
         {
             id: 'mainWindow',
             innerBounds: { width: 960, height: 600 },
-            frame: { type: 'none' },
+            frame: { type: frame },
             resizable: true
         },
 
