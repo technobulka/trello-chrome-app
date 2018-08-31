@@ -4,7 +4,7 @@
    "name": "Trello External Window",
    "short_name": "Trello XW",
    "description": "External Frameless Window for Trello",
-   "version": "0.9.3",
+   "version": "0.9.4",
    "icons": {
       "16": "assets/trello-mark-blue-16.png",
       "32": "assets/trello-mark-blue-32.png",

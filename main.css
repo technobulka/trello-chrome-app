@@ -5,22 +5,27 @@ html, body, #main {
 }
 
 #drag {
-    height: 30px;
-    min-width: 30px;
-    color: #f3f3f3;
+    transition: .1s ease;
+    background: hsla(0,0%,100%,.3);
+    border-radius: 3px;
+    color: #fff;
     font-size: 16px;
-    line-height: 30px;
     font-weight: 400;
+    line-height: 32px;
+    min-width: 32px;
     text-align: center;
     padding: 0;
-    background: -webkit-linear-gradient(top,rgba(255,255,255,.3) 0,rgba(255,255,255,.2) 100%);
-    background: linear-gradient(to bottom,rgba(255,255,255,.3) 0,rgba(255,255,255,.2) 100%);
-    border-radius: 3px;
+    text-decoration: none;
     position: absolute;
-    top: 5px;
-    left: 5px;
+    top: 4px;
+    left: 4px;
     cursor: move;
-    z-index: 2;
     -webkit-user-select: none;
     -webkit-app-region: drag;
+}
+
+#drag:hover {
+    background: hsla(0,0%,100%,.2);
+    color: #fff;
+    cursor: move;
 }

@@ -12,7 +12,7 @@ chrome.storage.sync.get(function(items) {
     if (frame == 'chrome') {
         bullet.style.display = 'none';
     } else {
-        insert_style += '.header-btn.header-boards,.promo-nav{margin-left:38px!important}';
+        insert_style += '.header-logo+div{margin-left:36px!important}';
     }
 });
 
